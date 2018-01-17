@@ -1,0 +1,45 @@
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" conten"ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Useless NoteTaker</title>
+</head>
+
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+  class Note extends React.Component {
+  // fucntions go above render method
+  handleButtonEdit() {
+    alert("this function will edit a note");
+  }
+  handleButtonDelete() {
+    alert("this function will delete a note");
+  }
+    render() {
+      // this allows us to access all functions within component
+      return(
+        <div>
+          <h1>Useless Note Taker</h1>
+          <button onClick={this.handleButtonEdit}>Edit note</button>
+          <button onClick={this.handleButtonDelete}>Delete note</button>
+        </div>
+      )
+    }
+  }
+
+    ReactDOM.render(
+      <Note/>,
+      document.getElementById("app")
+    );
+
+  </script>
+
+</body>
+</html>

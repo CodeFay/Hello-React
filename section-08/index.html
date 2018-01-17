@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Guessing Game</title>
+</head>
+
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+    //
+    // class Game extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       age: "Guess my age"
+    //     }
+    //     this.handleButtonAge = this.handleButtonAge.bind(this)
+    //     // when making react components with UI interation ...
+    //     // inside render method, "this" is bound to component (this.state.age)
+    //     // inside constructor, properties of a class do not automatically bind to a class instance
+    //   }
+    //   handleButtonAge() {
+    //     this.setState({
+    //       age: 27
+    //     });
+    //   }
+    //   render() {
+    //     return (
+    //       <div>
+    //         <h1>Guessing Game</h1>
+    //         <h2>{this.state.age}</h2>
+    //         <button onClick={this.handleButtonAge}>reveal my age</button>
+    //       </div>
+    //     )
+    //   }
+    // }
+
+
+    // class Game extends React.Component {
+    //   constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //       age: "Guess my age"
+    //     }
+    //     // when making react components with UI interation ...
+    //     // inside render method, "this" is bound to component (this.state.age)
+    //     // inside constructor, properties of a class do not automatically bind to a class instance
+    //   }
+    //   handleButtonAge() {
+    //     this.setState({
+    //       age: 27
+    //     });
+    //   }
+    //   render() {
+    //     return (
+    //       <div>
+    //         <h1>Guessing Game</h1>
+    //         <h2>{this.state.age}</h2>
+    //         <button onClick={this.handleButtonAge.bind(this)}>reveal my age</button>
+    //       </div>
+    //     )
+    //   }
+    // }
+
+    // FAT ARROW FUNCTIONS PRESERVE THE "THIS" CONTEXT WHEN CALLED
+    class Game extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          age: "Guess my age"
+        }
+        // when making react components with UI interation ...
+        // inside render method, "this" is bound to component (this.state.age)
+        // inside constructor, properties of a class do not automatically bind to a class instance
+      }
+      handleButtonAge() {
+        this.setState({
+          age: 27
+        });
+      }
+      render() {
+        return (
+          <div>
+            <h1>Guessing Game</h1>
+            <h2>{this.state.age}</h2>
+            <button onClick={() => this.handleButtonAge()}>reveal my age</button>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Game />,
+      document.getElementById("app")
+    )
+</script>
+
+
+</body>
+</html>

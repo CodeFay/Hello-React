@@ -1,0 +1,45 @@
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" conten"ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Life Warnings</title>
+</head>
+
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+  class Life extends React.Component{
+// where we put our functions
+  handleButtonStove() {
+    alert("Ouch, that's hot!")
+  }
+  handleButtonSlurp() {
+    alert("Ack, brain freeze!")
+  }
+    render() {
+      return (
+      <div>
+        <h1> Life Warnings</h1>
+        <button onMouseOver={this.handleButtonStove}>Touch Stove</button>
+        <button onMouseOver={this.handleButtonSlurp}>Drink Slurpee Really Fast</button>
+      </div>
+      )
+    }
+
+  }
+
+    ReactDOM.render(
+      <Life/>,
+      document.getElementById("app")
+    );
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" conten"ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Forms</title>
+</head>
+
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+  class NameForm extends React.Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        value: ''
+      }
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+    }
+    handleSubmit() {
+      alert("You have submitted: " + this.state.value);
+      event.preventDefault(); // prevent default behaviour that would reload the whole page.
+    }
+    // event passed to this function, target event property returns the element that
+    // triggered the event and retrieves the value
+    handleChange(event) {
+      this.setState ({
+        value: event.target.value
+      });
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="">
+            Name:
+            <input type="text" value ={this.state.value} onChange={this.handleChange}/>
+          </label>
+            <input type="submit" value = "submit"/>
+        </form>
+
+      );
+    }
+  }
+
+    ReactDOM.render(
+      <NameForm/>,
+      document.getElementById("app")
+    );
+
+  </script>
+
+</body>
+</html>

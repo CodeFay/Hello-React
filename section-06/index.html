@@ -1,0 +1,53 @@
+<html lang = "en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" conten"ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <title>Boiler Plate Code</title>
+</head>
+
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+  function FamilyList(props) {
+      // assign props.siblings to siblings variable to clean up code
+      var siblings = props.siblings;
+      // use map method on siblings array to creat new array full of JSX Code
+      var siblingsListItem = siblings.map(function(person) {
+        return <div key = {person.id}>{person.name}</div>
+      });
+    return(
+      <div>{siblingsListItem}</div>
+    );
+  }
+
+  // Alternative FamilyList component
+// function FamilyList(props) {
+//   return(
+//     <div>{props.siblings.map(function(person) {
+//       return <div key = {person.id}>{person.name}</div>
+//     })}</div>
+//   );
+// }
+
+
+  // ARRAY OF OBJECTS
+  var siblings = [{id: 1, name: 'Chris', female: false}, {id: 2, name: 'Jeff', female: false},
+                {id: 3, name: 'Julie', female: true}, {id: 4, name: 'Jessica', female: true}];
+
+    ReactDOM.render(
+      <FamilyList
+        siblings={siblings}
+      />,
+      document.getElementById("app")
+    );
+
+  </script>
+
+</body>
+</html>
